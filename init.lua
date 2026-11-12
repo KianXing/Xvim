@@ -14,7 +14,8 @@ require("plugins.nvim-treesitter") --tressitter
 require("plugins.hop") -- quick hop
 require("plugins.smear-cursor") --smear cursor
 require("plugins.neoscroll") --smooth scroll
-require("plugins.none-ls")
+require("plugins.none-ls") --formater
+require("plugins.fzf-lua")
 -- ui plugins
 require("plugins.tokyonight") -- theme
 require("plugins.bufferline") -- bufferplus
