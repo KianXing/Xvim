@@ -13,30 +13,50 @@ vim.pack.add({
 }
 -- {load = function () end}
 )
+local logo_path = vim.fn.stdpath("config")
+  .. "/assets/asuka.txt"
 
+local header = vim.fn.readfile(logo_path)
+
+vim.list_extend(header, {
+  "",
+  "██╗  ██╗██╗   ██╗██╗███╗   ███╗",
+  "╚██╗██╔╝██║   ██║██║████╗ ████║",
+  " ╚███╔╝ ██║   ██║██║██╔████╔██║",
+  " ██╔██╗ ╚██╗ ██╔╝██║██║╚██╔╝██║",
+  "██╔╝ ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║",
+  "╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝",
+  "",
+})
 -- dashboard-nvim config
 require("dashboard").setup({
-    theme = "doom",
-    config = {
-        header = {
-                [[        -=--      ]],
-    [[     .=-+===:     ]],
-    [[    :*+======:    ]],
-    [[    =+=+-+=++=    ]],
-    [[    -**=-:++**-   ]],
-    [[    -*+.  :-##:   ]],
-    [[    =+=. .  #*.   ]],
-    [[    -=%=   =#+    ]],
-    [[    -+%+::*%#=    ]],
-    [[   .*%%- =%%#+:   ]],
-    [[   *#+   :=*#*=   ]],
-    [[  **=-:::::-++*:  ]],
-    [[ *+ =++#####+-*#  ]],
-    [[:=  -==#*=:-*=.*: ]],
-    [[   :-+##%==+##: : ]],
-    [[..---+##%=+*##-.  ]],
-    [[-:--++##%--#%*-:::]],
-    [[.--=%**%#-:+##---:]],
-        }
-    }
+  theme = "doom",
+  config = {
+    header = header,
+    center = {
+      {
+        icon = "󰈞 ",
+        desc = "Find File",
+        key = "f",
+        action = "FzfLua files",
+      },
+      {
+        icon = "󰋚 ",
+        desc = "Recent Files",
+        key = "r",
+        action = "FzfLua oldfiles",
+      },
+      {
+        icon = "󰒲 ",
+        desc = "Quit",
+        key = "q",
+        action = "qa",
+      },
+    },
+    footer = {
+      "XVim - My personal Neovim configuration",
+    },
+    vertical_center = true,
+  },
 })
+
