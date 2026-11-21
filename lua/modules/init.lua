@@ -1,0 +1,6 @@
+require("modules.ui")
+require("modules.editing")
+require("modules.completion")
+require("modules.language")
+require("modules.nvigation")
+require("modules.animation")
